@@ -7,7 +7,7 @@ const cors = require('cors');
 const helmet = require('helmet');
 const routes = require('../api/routes/v1');
 const { logs } = require('./vars');
-const error = require('../api/middlewares/error');
+const error = require('../api/common/middlewares/error');
 
 // express instance
 const app = express();
