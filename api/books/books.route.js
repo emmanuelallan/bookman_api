@@ -3,9 +3,7 @@ const controller = require('./controllers/books.controller');
 
 const router = express.Router();
 
-// vi/books List books
-router.route('/').get(function (req, res) {
-  res.send('OK');
-});
+// api/v1/books List books
+router.route('/').get(controller.list);
 
 module.exports = router;
