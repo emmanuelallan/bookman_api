@@ -128,7 +128,7 @@ bookSchema.method({
 
 // Statics
 bookSchema.statics = {
-  // get user by id
+  // get book by id
 
   async get(id) {
     let book;
