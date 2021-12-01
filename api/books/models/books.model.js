@@ -128,6 +128,25 @@ bookSchema.method({
 
 // Statics
 bookSchema.statics = {
+  // get user by id
+
+  async get(id) {
+    let book;
+
+    if (mongoose.Types.ObjectId.isValid(id)) {
+      book = await this.findById(id).exec();
+    }
+
+    if (book) {
+      return book;
+    }
+
+    throw new APIError({
+      message: 'Book does not exist',
+      status: httpStatus.NOT_FOUND,
+    });
+  },
+
   // check title duplicates
   checkDuplicateTitle(error) {
     if (error.name === 'MongoError' && error.code === 11000) {

@@ -44,15 +44,19 @@ exports.list = async (req, res, next) => {
   }
 };
 
-// Get specific
-exports.load = async (req, res, next) => {
+// Load specific book
+exports.load = async (req, res, next, id) => {
   try {
-    const userId = req.params.id;
-    res.json(data[0]);
+    const book = await Book.get(id);
+    req.locals = { book };
+    return next();
   } catch (error) {
-    next(error);
+    return next(error);
   }
 };
+
+// Get book
+exports.get = (req, res) => res.json(req.locals.book.transform());
 
 // create a new book
 exports.create = async (req, res, next) => {
