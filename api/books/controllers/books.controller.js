@@ -35,6 +35,7 @@ exports.create = async (req, res, next) => {
     const savedBook = await book.save();
     res.status(httpStatus.CREATED);
     res.json(savedBook.transform());
+    // console.log(req.body);
   } catch (error) {
     next(Book.checkDuplicateTitle(error));
   }
