@@ -31,12 +31,15 @@ exports.get = (req, res) => res.json(req.locals.book.transform());
 // create a new book
 exports.create = async (req, res, next) => {
   try {
+    // const book = req.body;
     const book = new Book(req.body);
     const savedBook = await book.save();
     res.status(httpStatus.CREATED);
+    res.json(book);
     res.json(savedBook.transform());
   } catch (error) {
     next(Book.checkDuplicateTitle(error));
+    next(error);
   }
 };
 
