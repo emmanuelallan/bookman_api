@@ -2,6 +2,8 @@
 
 Bookman Bookstore RESTful APIs and microservices using Node.js, Express and MongoDB
 
+![bookman_api dashboard](https://user-images.githubusercontent.com/29913493/159889890-e582b778-03b1-499f-b6b0-0aa632da4c2f.png)
+
 ## Features
 
 - CRUD books
