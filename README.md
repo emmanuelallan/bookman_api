@@ -4,15 +4,12 @@ Bookman Bookstore RESTful APIs and microservices using Node.js, Express and Mong
 
 ## Features
 
-- No transpilers, just vanilla javascript
-- ES2017 latest features like Async/Await
-- CORS enabled
-- Uses [npm](https://npm.com)
-- Uses [helmet](https://github.com/helmetjs/helmet) to set some HTTP headers for security
-- Load environment variables from .env files with [dotenv](https://github.com/rolodato/dotenv-safe)
-- Gzip compression with [compression](https://github.com/expressjs/compression)
-- Linting with [eslint](http://eslint.org)
-- Logging with [morgan](https://github.com/expressjs/morgan)
+- CRUD books
+- stores images in aws s3 bucket
+- uses flutterwave payment gateway for mpesa, paypal and card processing
+- stock and sales stats
+- backup report in csv
+- customizable next js dashboard
 
 ## Requirements
 
@@ -24,8 +21,8 @@ Bookman Bookstore RESTful APIs and microservices using Node.js, Express and Mong
 #### Clone the repo and make it yours:
 
 ```bash
-git clone --depth 1 https://github.com/maxthestranger/bookman.git
-cd bookman
+git clone repo
+cd bookman_api
 rm -rf .git
 ```
 
@@ -50,7 +47,7 @@ npm start
 ## Running in Production
 
 ```bash
-npm
+npm run build
 ```
 
 ## Inspirations
@@ -60,4 +57,4 @@ npm
 
 ## License
 
-[MIT License](README.md) - [Max The Stranger](https://github.com/maxthestranger)
+[MIT License](LICENCE.md) - [Max The Stranger](https://github.com/maxthestranger)
