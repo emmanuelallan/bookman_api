@@ -2,8 +2,8 @@
   "name": "bookman_api",
   "version": "1.0.0",
   "description": "Bookman is an API service for online bookstores that provides the much-needed stats report and a way for clients to buy and pay for books as guests using M-Pesa, PayPal, and cards.",
-  "main": "app.js",
   "scripts": {
+    "start": "nodemon app.js",
     "test": "jest"
   },
   "repository": {
