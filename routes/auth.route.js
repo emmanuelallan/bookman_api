@@ -1,14 +1,14 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
-const { register, login, reset } = require("../controllers/auth.controller");
+const { register, login, reset } = require('../controllers/auth.controller');
 
 // register
-router.post("/register", register);
+// router.post("/register", register);
 
 // login
-router.post("/login", login);
+// router.post("/login", login);
 
 // reset password
-router.patch("/reset", reset);
+// router.patch("/reset", reset);
 
 module.exports = router;
