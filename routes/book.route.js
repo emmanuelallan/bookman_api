@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const verifyToken = require('../middlewares/authJWT');
+const authJWT = require('../middlewares/authJWT');
 const {
   create,
   edit,
@@ -13,15 +13,15 @@ const {
 router.get('/list', list);
 
 // get a book
-router.get('/get:bookId', get);
+router.get('/get/:bookId', get);
 
 // create a new book
-router.post('/new', verifyToken, create);
+router.post('/new', authJWT, create);
 
 // edit a book
-router.patch('/edit:bookId', verifyToken, edit);
+router.patch('/edit/:bookId', authJWT, edit);
 
 // delete a book
-router.delete('/remove:bookId', verifyToken, remove);
+router.delete('/remove/:bookId', authJWT, remove);
 
 module.exports = router;

@@ -54,7 +54,15 @@ exports.get = (req, res) => {
     // res with details
     res.status(200).send({
       book: {
-        ...book,
+        id: book.id,
+        title: book.title,
+        subTitle: book.subTitle,
+        imgUrl: book.imgUrl,
+        author: book.author,
+        category: book.category,
+        price: book.price,
+        stock: book.stock,
+        createdAt: book.created,
       },
     });
   });
@@ -90,7 +98,18 @@ exports.edit = (req, res) => {
     }
 
     res.status(200).send({
-      book: { ...book },
+      book: {
+        id: book.id,
+        title: book.title,
+        subTitle: book.subTitle,
+        imgUrl: book.imgUrl,
+        author: book.author,
+        category: book.category,
+        price: book.price,
+        stock: book.stock,
+        createdAt: book.created,
+      },
+      message: 'Book edited successfully!',
     });
   });
 };
@@ -102,7 +121,7 @@ exports.remove = (req, res) => {
   Book.remove({ _id: bookId })
     .then((result) => {
       res.status(200).send({
-        message: 'User deleted!',
+        message: 'Book deleted successfully!',
       });
     })
     .catch((err) => {

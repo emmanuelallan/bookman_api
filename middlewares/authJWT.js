@@ -12,7 +12,7 @@ const verifyToken = (req, res, next) => {
       req.headers.authorization.split(' ')[1],
       accessToken,
       function (err, decode) {
-        if (err) req.user = undefined;
+        if (err) res.status(500).send({ message: err });
         User.findOne({
           _id: decode.id,
         }).exec((err, user) => {
@@ -21,15 +21,21 @@ const verifyToken = (req, res, next) => {
               message: err,
             });
           } else {
-            req.user = user;
-            next();
+            if (user.role === 'admin') {
+              next();
+            } else {
+              res.status(403).send({
+                message: 'Unauthorised access',
+              });
+            }
           }
         });
       }
     );
   } else {
-    req.user = undefined;
-    next();
+    res.status(403).send({
+      message: 'Invalid JWT token',
+    });
   }
 };
 module.exports = verifyToken;
