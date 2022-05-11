@@ -59,3 +59,55 @@ exports.get = (req, res) => {
     });
   });
 };
+
+// get all books
+exports.list = (req, res) => {
+  Book.find().exec((err, books) => {
+    if (err) {
+      res.status(500).send({
+        message: err,
+      });
+
+      return;
+    }
+
+    res.status(200).send({
+      books: books,
+    });
+  });
+};
+
+// edit book
+exports.edit = (req, res) => {
+  const { bookId } = req.params;
+  Book.findByIdAndUpdate({ _id: bookId }, { ...req.body }).exec((err, book) => {
+    if (err) {
+      res.status(500).send({
+        message: err,
+      });
+
+      return;
+    }
+
+    res.status(200).send({
+      book: { ...book },
+    });
+  });
+};
+
+// delete book
+exports.remove = (req, res) => {
+  const { bookId } = req.params;
+
+  Book.remove({ _id: bookId })
+    .then((result) => {
+      res.status(200).send({
+        message: 'User deleted!',
+      });
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message: err,
+      });
+    });
+};
