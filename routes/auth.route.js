@@ -5,7 +5,7 @@ const { register, login } = require('../controllers/auth.controller');
 // register
 router.post('/register', register, (req, res) => {});
 
-// login
+login;
 router.post('/login', login, (req, res) => {});
 
 // reset password

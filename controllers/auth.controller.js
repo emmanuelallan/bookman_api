@@ -14,7 +14,7 @@ exports.register = (req, res) => {
     password: bcrypt.hashSync(password, 10),
   });
 
-  //   save the user
+  // save the user
   user.save((err, user) => {
     if (err) {
       res.status(500).send({
@@ -31,7 +31,7 @@ exports.register = (req, res) => {
 };
 
 // login a user
-exports.login((req, res) => {
+exports.login = (req, res) => {
   // find user by email
   User.findOne({
     email: req.body.email,
@@ -88,4 +88,4 @@ exports.login((req, res) => {
       accessToken: token,
     });
   });
-});
+};
