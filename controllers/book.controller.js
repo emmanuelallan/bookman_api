@@ -118,7 +118,7 @@ exports.edit = (req, res) => {
 exports.remove = (req, res) => {
   const { bookId } = req.params;
 
-  Book.remove({ _id: bookId })
+  Book.deleteOne({ _id: bookId })
     .then((result) => {
       res.status(200).send({
         message: 'Book deleted successfully!',
