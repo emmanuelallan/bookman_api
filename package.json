@@ -2,8 +2,11 @@
   "name": "bookman_api",
   "version": "1.0.0",
   "description": "Bookman is an API service for online bookstores that provides the much-needed stats report and a way for clients to buy and pay for books as guests using M-Pesa, PayPal, and cards.",
-  "main": "app.js",
+  "engines": {
+    "node": "16.x"
+  },
   "scripts": {
+    "start": "node app.js",
     "test": "jest"
   },
   "repository": {
@@ -24,5 +27,19 @@
   "bugs": {
     "url": "https://github.com/maxthestranger/bookman_api/issues"
   },
-  "homepage": "https://github.com/maxthestranger/bookman_api#readme"
+  "homepage": "https://github.com/maxthestranger/bookman_api#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "express": "^4.18.1",
+    "helmet": "^5.0.2",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.3.3"
+  },
+  "devDependencies": {
+    "jest": "^28.0.3",
+    "nodemon": "^2.0.16"
+  }
 }

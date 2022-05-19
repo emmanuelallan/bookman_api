@@ -25,7 +25,7 @@ Bookman Bookstore RESTful APIs and microservices using Node.js, Express and Mong
 ```bash
 git clone repo
 cd bookman_api
-rm -rf .git
+npm start
 ```
 
 #### Install dependencies:
@@ -37,7 +37,7 @@ npm install
 #### Set environment variables:
 
 ```bash
-cp .env.example .env
+auth_token and mongo uri
 ```
 
 ## Running Locally
