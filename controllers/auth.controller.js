@@ -5,10 +5,11 @@ const { accessToken } = require('../config/vars.config');
 
 // create user
 exports.register = (req, res) => {
-  const { email, role, password } = req.body;
+  const { storeName, email, role, password } = req.body;
 
   // generate new user from req.body
   const user = new User({
+    storeName,
     email,
     role,
     password: bcrypt.hashSync(password, 10),
@@ -80,6 +81,7 @@ exports.login = (req, res) => {
     res.status(200).send({
       user: {
         id: user._id,
+        storeName: user.storeName,
         email: user.email,
         role: user.role,
         createdAt: user.created,

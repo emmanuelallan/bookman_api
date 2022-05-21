@@ -2,6 +2,10 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const userSchema = new Schema({
+  storeName: {
+    type: String,
+    required: [true, 'Store name required!'],
+  },
   email: {
     type: String,
     maxlength: 256,
